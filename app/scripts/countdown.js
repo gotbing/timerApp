@@ -28,21 +28,29 @@ countdownApp.controller("countdownController", ['$scope', '$interval', function(
   var startTime;
   var elapsedTime = 0;
   var tick;
-  $scope.seconds = '';
+  $scope.time = '';
 
   console.log($scope.myTime + " " + myCurrentTime + " " + startTime + " " + elapsedTime);
 
 
   $scope.setCountdown = function(sec) {
 
-    $scope.myTime = sec * 1000;
+    $scope.myTime = sec * 1000; //converts to total ms
 
 
   };
 
   $scope.setSeconds = function (addNum) {
-    $scope.seconds += addNum;
-    $scope.setCountdown($scope.seconds);
+    $scope.time += addNum;
+
+    var sec = parseInt($scope.time);
+    if ($scope.time.length > 2) {
+      var pivot = $scope.time.length - 2;
+      var minsAsSeconds = parseInt($scope.time.substring(0, pivot) * 60);
+      sec = minsAsSeconds + parseInt($scope.time.substring(pivot));
+    }
+
+    $scope.setCountdown(sec+"");
     myCurrentTime = $scope.myTime;
   }
 
@@ -87,7 +95,7 @@ countdownApp.controller("countdownController", ['$scope', '$interval', function(
 
   $scope.clear = function () {
       $scope.reset();
-      $scope.seconds = '';
+      $scope.time = '';
       myCurrentTime = 0;
   }
 
