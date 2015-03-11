@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+  <title></title>
+
+  <!-- build:css styles/vendor.css -->
+  <!-- bower:css -->
+  <link rel="stylesheet" href="bower_components/ionic/release/css/ionic.css" />
+  <!-- endbower -->
+  <!-- endbuild -->
+  <link href="styles/style.css" rel="stylesheet">
+
+  <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+  <link href="styles/ionic.app.css" rel="stylesheet">
+  -->
+
+  <!-- ionic/angularjs js -->
+  <!-- build:js scripts/vendor.js -->
+  <!-- bower:js -->
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/angular-animate/angular-animate.js"></script>
+  <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+  <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+  <script src="bower_components/ionic/release/js/ionic.js"></script>
+  <script src="bower_components/ionic/release/js/ionic-angular.js"></script>
+  <script src="bower_components/ngCordova/dist/ng-cordova.js"></script>
+  <!-- endbower -->
+  <!-- endbuild -->
+
+  <!-- cordova script (this will be a 404 during development) -->
+  <script src="/node_modules/cordova/cordova.js"></script>
+
+  <!-- your app's js -->
+  <!-- build:js scripts/scripts.js -->
+  <script src="scripts/countdown.js"></script>
+  <script src="scripts/configuration.js"></script>
+  <!-- endbuild -->
+</head>
+<body ng-app="countdownApp">
+
+<ion-pane>
+  <ion-header-bar class="bar bar-header bar-positive">
+    <h1 class="title">Ionic Blank Starter</h1>
+  </ion-header-bar>
+  <ion-content>
+    <div id="stopwatch" ng-controller="countdownController">
+
+      <h1 class="centerText em5 padding1-2em fontRed">{{ getCountdownTime() | date:'mm:ss' }}</h1>
+
+      <button class="button button-balanced  col-25" ng-click="play()">
+        PLAY
+      </button>
+
+      <button class="button button-assertive  col-25" ng-click="stop()">
+        STOP
+      </button>
+
+      <button class="button button-stable  col-25" ng-click="reset()">
+      RESET
+    </button>
+
+      <button class="button button-stable  col-25" ng-click="clear()">
+        CLEAR
+      </button>
+
+
+
+      <form id="inputTime">
+        <!-- <input type="text" ng-model="seconds"><br /> -->
+        <button class="remoteNum button button-dark" name="1" ng-click="setSeconds(1)">1</button>
+        <button class="remoteNum button button-dark" name="2" ng-click="setSeconds(2)">2</button>
+        <button class="remoteNum button button-dark" name="3" ng-click="setSeconds(3)">3</button>
+        <button class="remoteNum button button-dark" name="4" ng-click="setSeconds(4)">4</button>
+        <button class="remoteNum button button-dark" name="5" ng-click="setSeconds(5)">5</button>
+        <button class="remoteNum button button-dark" name="6" ng-click="setSeconds(6)">6</button>
+        <button class="remoteNum button button-dark" name="7" ng-click="setSeconds(7)">7</button>
+        <button class="remoteNum button button-dark" name="8" ng-click="setSeconds(8)">8</button>
+        <button class="remoteNum button button-dark" name="9" ng-click="setSeconds(9)">9</button>
+        <button class="remoteNum button button-dark" name="0" ng-click="setSeconds(0)">0</button> <br /><br />
+        <!-- <button ng-click="setCountdown(seconds)" class="button button-balanced">Set Time</button> -->
+
+      </form>
+    </div>
+
+  </ion-content>
+</ion-pane>
+</body>
+</html>
