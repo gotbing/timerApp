@@ -33,9 +33,9 @@ countdownApp.controller("countdownController", ['$scope', '$interval', function(
   console.log($scope.myTime + " " + myCurrentTime + " " + startTime + " " + elapsedTime);
 
 
-  $scope.setCountdown = function(sec) {
+  $scope.setCountdown = function(secondsInput) {
 
-    $scope.myTime = sec * 1000; //converts to total ms
+    $scope.myTime = secondsInput * 1000; //converts to total ms
 
 
   };
@@ -101,13 +101,18 @@ countdownApp.controller("countdownController", ['$scope', '$interval', function(
 
   $scope.getCountdownTime = function () {
     var displayTime = myCurrentTime - elapsedTime;
-    if (displayTime <= 0) {
-      displayTime = 0;
+    if (displayTime <= 0 && tick) {
+      //displayTime = 0;
       this.stop();
-      //alert("LOLOL");
-    }
+      displayTime = 0;
+      alert("LOLOL");
 
-    return displayTime;
+      return displayTime;
+
+    } else {
+
+      return displayTime;
+    }
   };
 
 

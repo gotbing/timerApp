@@ -1,9 +1,17 @@
 /* Empty. Add your own CSS if you like */
 
+
+@font-face {
+  font-family: digital;
+  src: url(DS-DIGIT.ttf);
+}
 .centerText {
   text-align:center;
 }
 
+.digital {
+  font-family:digital;
+}
 .pane {
   background-color:#000;
 }
