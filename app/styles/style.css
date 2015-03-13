@@ -15,9 +15,13 @@
 .pane {
   background-color:#000;
 }
-.em5 {
-  font-size:36vw;
-  }
+.vw36 {
+      font-size:36vw;
+    }
+
+.vw20 {
+  font-size:20vw;
+}
 
 .fontRed {
   color: #ff0000;

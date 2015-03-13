@@ -1,0 +1,24 @@
+
+      <ion-view view-title="Stopwatch">
+        <ion-content>
+          <div id="stopwatch" ng-controller="timerController">
+
+            <h1 class="centerText vw20 padding1-2em fontRed">{{ getTime() | date:'mm:ss:sss' }}</h1>
+
+            <button class="button button-balanced  col-25" ng-click="play()">
+              PLAY
+            </button>
+
+            <button class="button button-assertive  col-25" ng-click="stop()">
+              STOP
+            </button>
+
+            <button class="button button-stable  col-25" ng-click="reset()">
+              RESET
+            </button>
+
+            <timer interval="1000">{{seconds}}</timer>
+          </div>
+          </ion-content>
+      </ion-view>
+

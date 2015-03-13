@@ -110,8 +110,13 @@ countdownApp.controller("countdownController", ['$scope', '$interval', function(
       return displayTime;
 
     } else {
+      if (displayTime < 0) {
+        return 0;
+      } else {
 
-      return displayTime;
+
+        return displayTime;
+      }
     }
   };
 
